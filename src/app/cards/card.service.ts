@@ -12,7 +12,6 @@ export class CardService {
     constructor(private http: HttpClient){}
 
     getCardsByCategory(categoryId: string): Observable<ICard[]>{
-        console.log(this.httpUrl+categoryId)
         return this.http.get<ICard[]>(this.httpUrl+categoryId).pipe(
             tap( (data: any) => {
                 JSON.stringify(data)

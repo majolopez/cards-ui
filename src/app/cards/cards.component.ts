@@ -47,11 +47,9 @@ export class CardsComponent implements OnInit{
     
   }
   toggleShow(id: any) {
-    console.log(id)
     this.cards = this.cards.map(card=> {
       if(card._id === id){
         card.showFront = !card.showFront
-        console.log(card)
       }
       
       return card
