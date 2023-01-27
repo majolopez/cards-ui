@@ -5,8 +5,8 @@ import { ICategory } from './category';
 import { CategoryService } from './category.service';
 @Component({
   selector: 'app-catergories',
-  templateUrl: './catergories.component.html',
-  styleUrls: ['./catergories.component.css'],
+  templateUrl: './categories.component.html',
+  styleUrls: ['./categories.component.css'],
   animations: [
     trigger('flipState', [
       state('active', style({
@@ -20,8 +20,7 @@ import { CategoryService } from './category.service';
     ])
   ]
 })
-export class CatergoriesComponent implements OnInit{
-
+export class CategoriesComponent implements OnInit{
   constructor(private categoryService: CategoryService){}
 
   
@@ -48,5 +47,9 @@ export class CatergoriesComponent implements OnInit{
   getCards(categoryId: string):void {
     alert(categoryId)
 
+  }
+
+  addCategory() {
+    
   }
 }

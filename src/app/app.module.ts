@@ -5,8 +5,8 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CardsComponent } from './cards/cards.component';
-import { CatergoriesComponent } from './catergories/catergories.component';
-import { CategoryService } from './catergories/category.service';
+import { CategoriesComponent } from './categories/categories.component';
+import { CategoryService } from './categories/category.service';
 import { RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
@@ -19,9 +19,9 @@ import { CardComponent } from './cards/card.component';
   declarations: [
     AppComponent,
     CardsComponent,
-    CatergoriesComponent,
+    CategoriesComponent,
     WelcomeComponent,
-    CardComponent
+    CardComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +29,7 @@ import { CardComponent } from './cards/card.component';
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'categories', component: CatergoriesComponent},
+      { path: 'categories', component: CategoriesComponent},
       { path: 'cards/:id', component: CardsComponent },
       { path: 'card/:categoryId', component: CardComponent },
       { path: 'welcome', component: WelcomeComponent },

@@ -1,4 +1,4 @@
-import { ICategory } from "../catergories/category";
+import { ICategory } from "../categories/category";
 
 export interface ICard{
     _id: string,
