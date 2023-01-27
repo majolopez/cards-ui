@@ -1,0 +1,13 @@
+<form >
+    <div class="form-group row">
+        <label for="name">Name</label>
+        <input id="name" name="name" class="form-control"  [(ngModel)] ='category.name'>
+    </div>  
+<div class="row">
+    <div class="col-3">
+        <button type="button" class="btn btn-primary" (click)="save(this.category.name)">Save</button>
+        <button type="button" class="btn btn-light" (click)="back()">Back</button>
+      </div>
+</div>
+
+</form> 
