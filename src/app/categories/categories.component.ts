@@ -1,5 +1,6 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { ICategory } from './category';
 import { CategoryService } from './category.service';
@@ -21,7 +22,8 @@ import { CategoryService } from './category.service';
   ]
 })
 export class CategoriesComponent implements OnInit{
-  constructor(private categoryService: CategoryService){}
+  constructor(private categoryService: CategoryService,
+              private router: Router){}
 
   
   flip: string = 'inactive';
@@ -50,6 +52,6 @@ export class CategoriesComponent implements OnInit{
   }
 
   addCategory() {
-    
+    this.router.navigate(["category"])
   }
 }

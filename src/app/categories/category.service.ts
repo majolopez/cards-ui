@@ -8,6 +8,7 @@ import { ICategory } from "./category";
     providedIn: 'root'
 })
 export class CategoryService {
+
     private httpUrl: string = environment.api +'api/categories/'
     constructor(private http: HttpClient){}
 
@@ -16,6 +17,15 @@ export class CategoryService {
             tap( (data: any) => JSON.stringify(data)),
             catchError(this.handleError)
         )
+    }
+
+    addCategory(categoryName: string) : Observable<any> {
+      let body = {
+        name: categoryName
+      }
+
+      return this.http.post(this.httpUrl, body)
+
     }
 
     private handleError(err: HttpErrorResponse){

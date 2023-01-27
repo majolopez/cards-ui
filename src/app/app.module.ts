@@ -13,6 +13,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CardComponent } from './cards/card.component';
+import { CategoryComponent } from './categories/category.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { CardComponent } from './cards/card.component';
     CategoriesComponent,
     WelcomeComponent,
     CardComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,6 +32,7 @@ import { CardComponent } from './cards/card.component';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'categories', component: CategoriesComponent},
+      { path: 'category', component: CategoryComponent},
       { path: 'cards/:id', component: CardsComponent },
       { path: 'card/:categoryId', component: CardComponent },
       { path: 'welcome', component: WelcomeComponent },
