@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ICategory } from '../catergories/category';
-import { CategoryService } from '../catergories/category.service';
 import { ICard } from './card';
 import { CardService } from './card.service';
 
@@ -10,7 +8,8 @@ import { CardService } from './card.service';
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.css']
 })
-export class CardComponent {
+export class CardComponent implements OnInit{
+
 
   categoryId: any = "";
 
@@ -32,20 +31,27 @@ export class CardComponent {
   constructor(private route: ActivatedRoute, 
               private cardsService: CardService,
               private router: Router){}
+  ngOnInit(): void {
+    this.categoryId = this.route.snapshot.paramMap.get('categoryId')?.toString() 
+  }
+
+  
 
   save(card: ICard) {
-    let categoryId:any = this.route.snapshot.paramMap.get('categoryId')?.toString() 
-    card.category._id! = categoryId
+    
+    card.category._id! = this.categoryId
 
     this.cardsService.saveCard(card).subscribe(
-
       result =>  {
         this.router.navigate(['/cards', result.category] )
-    
     },
       error => console.log(error)
     )
-    }
+  }
+
+  back() {
+    this.router.navigate(['/cards', this.categoryId])
+  }
 
 
 
