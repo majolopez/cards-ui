@@ -12,6 +12,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'; 
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { CardComponent } from './cards/card.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +21,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     CardsComponent,
     CatergoriesComponent,
     WelcomeComponent,
-    
+    CardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     RouterModule.forRoot([
       { path: 'categories', component: CatergoriesComponent},
       { path: 'cards/:id', component: CardsComponent },
+      { path: 'card/:categoryId', component: CardComponent },
       { path: 'welcome', component: WelcomeComponent },
       { path: '', redirectTo:'welcome', pathMatch:'full' }
 

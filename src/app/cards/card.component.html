@@ -1,0 +1,16 @@
+<form>
+    <div class="form-group row">
+        <label for="front">Front</label>
+        <input id="front" name="front" class="form-control"  [(ngModel)] ='card.front'>
+    </div>  
+    <div class="form-group row">
+        <label for="back">Back</label>
+        <input id="back" name="back" class="form-control"  [(ngModel)] ='card.back'>
+    </div>  
+<div class="row">
+    <div class="col-3">
+        <button type="button" class="btn btn-primary" (click)="save(this.card)">Save</button>
+      </div>
+</div>
+
+</form> 

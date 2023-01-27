@@ -23,6 +23,18 @@ export class CardService {
         )
     }
 
+    saveCard(card: ICard): Observable<any> {
+
+        let body = {
+            front: card.front,
+            back: card.back,
+            category_id: card.category._id
+        }
+
+
+        return this.http.post(this.httpUrl, body)
+    }
+
     private handleError(err: HttpErrorResponse){
         let errorMessage = '';
     

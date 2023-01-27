@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ICard } from './card';
 import { CardService } from './card.service';
@@ -11,6 +11,7 @@ import { faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./cards.component.css'],
 })
 export class CardsComponent implements OnInit{
+
   faArrowRight = faArrowRight;
   faArrowLeft = faArrowLeft;
 
@@ -18,6 +19,7 @@ export class CardsComponent implements OnInit{
   private _cardsFilter: string = ''
 
   constructor(private route: ActivatedRoute,
+              private router: Router,
               private cardsService: CardService){}
   categoryId: any = ''
   sub: Subscription | undefined;
@@ -34,6 +36,7 @@ export class CardsComponent implements OnInit{
   filteredCards: ICard[] = []
 
   cards: ICard[] =[]
+
   ngOnInit(): void {
     let id = this.route.snapshot.paramMap.get('id')?.toString()
     this.sub = this.cardsService.getCardsByCategory(id!).subscribe(
@@ -41,7 +44,9 @@ export class CardsComponent implements OnInit{
         this.cards = cards
         this.filteredCards = this.cards
       }}
+
     )
+    this.categoryId= id;
 
     
   }
@@ -60,5 +65,9 @@ export class CardsComponent implements OnInit{
 
     return this.cards.filter((card: ICard) => 
     card.front.toLocaleLowerCase().includes(filterBy))
+  }
+
+  addCard() {
+    this.router.navigate(['card',  this.categoryId] );
   }
 }
